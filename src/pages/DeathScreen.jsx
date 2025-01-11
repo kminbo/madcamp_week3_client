@@ -60,7 +60,7 @@ const DeathScreen = () => {
                     진짜요?
                 </button>
             </div>
-
+{/* 
             <div
                 className={`text-center text-white mt-8 transition-opacity duration-1000 ${
                     showMessage ? 'opacity-100' : 'opacity-0'
@@ -69,7 +69,17 @@ const DeathScreen = () => {
                 <p>여기가 마지막일까요?</p>
                 <p>아니면 아직 남겨둔 무언가가</p>
                 <p>당신을 기다리고 있을까요?</p>
-            </div>
+            </div> */}
+
+            <h1
+                className={`text-4xl font-bold mt-8 text-white transition-opacity duration-1000 ${
+                    showMessage ? 'opacity-100' : 'opacity-0'
+                }`}
+            >
+            <p>여기가 마지막일까요?</p>
+            <p>아니면 아직 남겨둔 무언가가</p>
+            <p>당신을 기다리고 있을까요?</p>
+            </h1>
         </div>
     );
 }
