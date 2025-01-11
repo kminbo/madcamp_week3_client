@@ -13,7 +13,7 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/death",
+                path: "death",
                 element: <DeathScreen />,
             },
         ],
