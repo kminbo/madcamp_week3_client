@@ -6,10 +6,38 @@ import useUserStore from '../../store/userStore';
 const GratitudeRoom = () => {
     const { lastName, firstName } = useUserStore();
     const [answer, setAnswer] = useState('');
+    const [step, setStep] = useState(1); //질문 단계를 위한 상태
+    const [title, setTitle] = useState(`${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`); //질문 제목을 위한 상태
+    const [popupMessage, setPopupMessage] = useState('');
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const handleChange = (e) => {
         setAnswer(e.target.value);
     }
+
+    const handleSubmit = () => {
+        if (step === 1) {
+            setTitle("당신에게 가장 소중했던 사람은 누구였나요? 그 이유도 알려주세요!");
+            setAnswer('');
+            setStep(step + 1);
+        } else {
+            //다음 단계가 없다면 보라색 팝업 띄우기
+            setPopupMessage("의미 있는 사람들과 나눈 소중하고 감사한 순간들이 참 따뜻하게 느껴지네요!");
+            setIsPopupOpen(true);
+        }
+        
+    }
+
+    const handlePreviousButtonClick = () => {
+        if (step === 2) {
+            setTitle(`${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`);
+            setStep(step - 1);
+        }
+    };
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    };
 
     return (
         <div
@@ -38,7 +66,7 @@ const GratitudeRoom = () => {
                 {/* 우측 메뉴 */}
                 <div className="w-3/4 bg-white bg-opacity-45 p-8 rounded-l-3xl flex flex-col items-center justify-center px-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
-                    {`${lastName}${firstName}`}님의 삶에서 가장 감사했던 순간은 언제였나요?
+                    {title}
                 </h1>
 
                 <textarea
@@ -49,29 +77,42 @@ const GratitudeRoom = () => {
                 />
 
                 {/* 하단 음표 이미지 */}
-                <div className="flex justify-center mt-8 space-x-4">
-                    <img src={require('../../assets/images/note1.png')} alt="note1" className="w-8 h-8" />
-                    <img src={require('../../assets/images/note2.png')} alt="note2" className="w-8 h-8" />
-                    <img src={require('../../assets/images/note3.png')} alt="note3" className="w-8 h-8" />
-                    <img src={require('../../assets/images/note4.png')} alt="note4" className="w-8 h-8" />
-                    <img src={require('../../assets/images/note5.png')} alt="note5" className="w-8 h-8" />
+                <div className="flex mt-16 space-x-4">
+                    <img src={require('../../assets/images/note1.png')} alt="note1" className="w-16 h-30 opacity-60 grayscale" />
+                    <img src={require('../../assets/images/note2.png')} alt="note2" className="w-16 h-30 opacity-60 grayscale" />
+                    <img src={require('../../assets/images/note3.png')} alt="note3" className="w-16 h-30 opacity-60 grayscale" />
+                    <img src={require('../../assets/images/note4.png')} alt="note4" className="w-16 h-30 opacity-60 grayscale" />
+                    <img src={require('../../assets/images/note5.png')} alt="note5" className="w-16 h-30 opacity-60 grayscale" />
                 </div>
 
                 {/* 좌우 네비게이션 버튼 */}
                 <div className="absolute bottom-0 left-1/4 right-0 flex justify-between px-4 pb-4">
                     {/* 왼쪽 버튼 */}
-                    <button className="text-2xl text-gray-700 hover:text-black">
+                    <button 
+                        className="text-2xl text-gray-700 hover:text-black"
+                        onClick={handlePreviousButtonClick}
+                    >
                         &#8592;
                     </button>
 
                     {/* 오른쪽 버튼 */}
                     <button 
                         className="text-2xl text-gray-700 hover:text-black"
+                        onClick={handleSubmit}
                     >
                         &#8594;
                     </button>
                 </div>
             </div>
+
+            {/* 팝업 메시지 */}
+            {isPopupOpen && (
+                <div 
+                    onClick={closePopup}
+                    className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-700 text-white px-6 py-4 rounded-lg shadow-lg text-center whitespace-pre-line'>
+                    {popupMessage}
+                </div>
+            )}
         </div>
     );
 };
