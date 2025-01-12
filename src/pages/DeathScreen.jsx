@@ -24,7 +24,9 @@ const DeathScreen = () => {
     const handleButtonClick = () => {
         setShowInitialText(false);
         setShowButtons(false);
-        setShowMessage(true);
+        setTimeout(() => {
+            setShowMessage(true);
+        }, 500);
     };
 
     return (
@@ -34,26 +36,26 @@ const DeathScreen = () => {
                 backgroundImage: `url(${home_background})`,
             }}
         >
-            <div>
-                {!showMessage ? (
-                    <h1
-                        className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${
-                            showInitialText ? 'opacity-100' : 'opacity-0'
-                        }`}
-                    >
-                        당신은 죽었습니다
-                    </h1>
-                ) : (
-                    <h1
-                        className="text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 opacity-100"
-                    >
-                        여기가 마지막일까요?
-                        <br />
-                        아니면 아직 남겨둔 무언가가
-                        <br />
-                        당신을 기다리고 있을까요?
-                    </h1>
-                )}
+            <div className="relative">
+                <h1
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${
+                        showInitialText && !showMessage ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
+                    당신은 죽었습니다
+                </h1>
+
+                <h1
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${
+                        showMessage ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
+                    여기가 마지막일까요?
+                    <br />
+                    아니면 아직 남겨둔 무언가가
+                    <br />
+                    당신을 기다리고 있을까요?
+                </h1>
             </div>
 
             <div
