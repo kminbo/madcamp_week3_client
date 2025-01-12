@@ -17,37 +17,51 @@ const JourneyStart = () => {
         console.log(lastName, firstName, birthDate);
 
         const userData = {
-            user_id: userId,  //로그인된 유저의 id
-            last_name: lastName,
-            first_name: firstName,
-            birth_date: birthDate,
+            user_id: 1,  //userId
+            last_name: lastName || '김',
+            first_name: firstName || '보민',
+            birth_date: birthDate || '2004-02-16',
         };
 
-        try {
-            const response = await fetch('http://13.211.159.177/basics', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userData),
-            });
+        console.log('임시 전송 데이터:', userData);
 
-            if (response.ok) {
-                const data = await response.json();
+        // try {
+        //     const response = await fetch('http://13.211.159.177/basics', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(userData),
+        //     });
 
-                if (data.success) {
-                    console.log('서버 응답:', data.message);
-                    setPopupMessage(`반가워요, ${lastName+firstName}님! 갑작스러운 여정에 놀라셨겠지만.. \n같이 즐겨주셨으면 좋겠어요 :)`);
-                    setIsPopupOpen(true);
-                } else {
-                    console.error('응답 실패:', data.message);
-                }
-            } else {
-                console.error('서버 오류:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
+        //     if (response.ok) {  
+        //         const data = await response.json();
+
+        //         if (data.success) {
+        //             console.log('서버 응답:', data.message);
+        //             setPopupMessage(`반가워요, ${lastName+firstName}님! 갑작스러운 여정에 놀라셨겠지만.. \n같이 즐겨주셨으면 좋겠어요 :)`);
+        //             setIsPopupOpen(true);
+        //         } else {
+        //             console.error('응답 실패:', data.message);
+        //         }
+        //     } else {
+        //         console.error('서버 오류:', response.statusText);
+        //     }
+        // } catch (error) {
+        //     console.error('Error:', error);
+        // }
+
+            // const response = await fetch('http://13.211.159.177/basics', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(userData),
+            // });
+
+
+        setPopupMessage(`반가워요, ${lastName+firstName}님! 갑작스러운 여정에 놀라셨겠지만.. \n같이 즐겨주셨으면 좋겠어요 :)`);
+        setIsPopupOpen(true);
     };
 
     return (
@@ -122,7 +136,7 @@ const JourneyStart = () => {
                     {/* 오른쪽 버튼 */}
                     <button 
                         className="text-2xl text-gray-700 hover:text-black"
-                        onclick={handleSubmit}
+                        onClick={handleSubmit}
                     >
                         &#8594;
                     </button>
