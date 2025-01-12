@@ -23,7 +23,7 @@ const GratitudeRoom = () => {
 
                 {/* 좌측 메뉴 */}
                 <div className="w-1/4 text-white flex flex-col items-center justify-center p-8 space-y-6">
-                    <h2 className="text-lg font-semibold bg-black bg-opacity-60 px-3 py-2 rounded-md">
+                    <h2 className="text-lg font-semibold px-3 py-2 rounded-md">
                         방랑자 정보 입력
                     </h2>
                     <ul className="space-y-4 text-lg">
@@ -36,7 +36,7 @@ const GratitudeRoom = () => {
                 </div>
 
                 {/* 우측 메뉴 */}
-                <div className="w-3/4 flex flex-col items-center justify-center px-8">
+                <div className="w-3/4 bg-white bg-opacity-45 p-8 rounded-l-3xl flex flex-col items-center justify-center px-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
                     {`${lastName}${firstName}`}님의 삶에서 가장 감사했던 순간은 언제였나요?
                 </h1>
