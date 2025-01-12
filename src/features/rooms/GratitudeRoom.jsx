@@ -5,30 +5,44 @@ import useUserStore from '../../store/userStore';
 
 const GratitudeRoom = () => {
     const { lastName, firstName } = useUserStore();
-    const [answer, setAnswer] = useState('');
-    const [step, setStep] = useState(1); //질문 단계를 위한 상태
-    const [title, setTitle] = useState(`${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`); //질문 제목을 위한 상태
+    const [answers, setAnswers] = useState({ 1: '', 2: '' });
+    const [step, setStep] = useState(1);
+    const [title, setTitle] = useState(`${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`);
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const handleChange = (e) => {
-        setAnswer(e.target.value);
-    }
+        setAnswers(prev => ({
+            ...prev,
+            [step]: e.target.value
+        }));
+    };
 
     const handleSubmit = () => {
+        if (answers[step].trim() === '') {
+            // 입력값이 없을 때
+            setPopupMessage("답변을 입력해주세요! 😊");
+            setIsPopupOpen(true);
+            return;
+        }
+
         if (step === 1) {
             setTitle("당신에게 가장 소중했던 사람은 누구였나요? 그 이유도 알려주세요!");
-            setAnswer('');
+            setAnswers({ 1: '' });
             setStep(step + 1);
         } else {
             //다음 단계가 없다면 보라색 팝업 띄우기
             setPopupMessage("의미 있는 사람들과 나눈 소중하고 감사한 순간들이 참 따뜻하게 느껴지네요!");
             setIsPopupOpen(true);
         }
-        
     }
 
     const handlePreviousButtonClick = () => {
+        if (isPopupOpen) {
+            setIsPopupOpen(false);
+            return;
+        }
+
         if (step === 2) {
             setTitle(`${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`);
             setStep(step - 1);
@@ -70,7 +84,7 @@ const GratitudeRoom = () => {
                 </h1>
 
                 <textarea
-                    value={answer}
+                    value={answers[step]}
                     onChange={handleChange}
                     placeholder="여기에 남겨주세요 :)"
                     className="w-full h-48 p-4 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 resize-none"
@@ -109,7 +123,7 @@ const GratitudeRoom = () => {
             {isPopupOpen && (
                 <div 
                     onClick={closePopup}
-                    className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-700 text-white px-6 py-4 rounded-lg shadow-lg text-center whitespace-pre-line'>
+                    className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-700 text-white px-6 py-4 rounded-lg shadow-lg text-center whitespace-pre-line cursor-pointer'>
                     {popupMessage}
                 </div>
             )}
