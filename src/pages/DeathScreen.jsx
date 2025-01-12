@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import home_background from '../assets/images/home_background.png';
 
 const DeathScreen = () => {
+    const navigate = useNavigate();
     const [showInitialText, setShowInitialText] = useState(false);
     const [showButtons, setShowButtons] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
@@ -50,6 +52,10 @@ const DeathScreen = () => {
                 }, 2000);
             }, 1000);
         }, 300);
+    };
+
+    const handleStartJourney = () => {
+        navigate('/journey-start');
     };
 
     return (
@@ -136,6 +142,7 @@ const DeathScreen = () => {
                 className={`mt-10 bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg hover:bg-opacity-30 transition-all duration-1000 ${
                     showStartButton ? 'opacity-100' : 'opacity-0'
                 }`}
+                onClick={handleStartJourney}
             >
                 영혼의 여정 시작하기
             </button>

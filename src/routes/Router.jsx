@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, createBrowserRouter } from 'rea
 import Home from '../pages/Home';
 import DeathScreen from '../pages/DeathScreen';
 import App from '../App';
+import JourneyStart from '../pages/JourneyStart';
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
                 path: "death",
                 element: <DeathScreen />,
             },
+            {
+                path: "journey-start",
+                element: <JourneyStart />,
+            }
         ],
     },
 ]);
