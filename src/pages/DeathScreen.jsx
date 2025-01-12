@@ -5,6 +5,7 @@ const DeathScreen = () => {
     const [showInitialText, setShowInitialText] = useState(false);
     const [showButtons, setShowButtons] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
+    const [showSecondMessage, setShowSecondMessage] = useState(false);
 
     useEffect(() => {
         const textTimer = setTimeout(() => {
@@ -26,7 +27,10 @@ const DeathScreen = () => {
         setShowButtons(false);
         setTimeout(() => {
             setShowMessage(true);
-        }, 500);
+            setTimeout(() => {
+                setShowSecondMessage(true);
+            }, 1000);
+        }, 300);
     };
 
     return (
@@ -45,17 +49,23 @@ const DeathScreen = () => {
                     당신은 죽었습니다
                 </h1>
 
-                <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${
-                        showMessage ? 'opacity-100' : 'opacity-0'
-                    }`}
-                >
-                    여기가 마지막일까요?
-                    <br />
-                    아니면 아직 남겨둔 무언가가
-                    <br />
-                    당신을 기다리고 있을까요?
-                </h1>
+                <div className={`text-4xl sm:text-5xl font-bold text-white text-center`}>
+                    <h1
+                        className={`transition-opacity duration-700 ${
+                            showMessage ? 'opacity-100' : 'opacity-0'
+                        }`}
+                    >
+                        여기가 마지막일까요?
+                    </h1>
+                    <h1
+                        className={`transition-opacity duration-700 mt-4 ${
+                            showSecondMessage ? 'opacity-100' : 'opacity-0'
+                        }`}
+                    >
+                        <p>아니면 아직 남겨둔 무언가가 </p>
+                        <p>당신을 기다리고 있을까요?</p>
+                    </h1>
+                </div>
             </div>
 
             <div
