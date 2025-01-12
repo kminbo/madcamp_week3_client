@@ -7,29 +7,35 @@ const GratitudeRoom = () => {
     const { lastName, firstName } = useUserStore();
     const [answers, setAnswers] = useState({ 1: '', 2: '' });
     const [step, setStep] = useState(1);
-    const [title, setTitle] = useState(`${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`);
+    const [currentInput, setCurrentInput] = useState('');
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const questions = {
+        1: `${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`,
+        2: "당신에게 가장 소중했던 사람은 누구였나요? 그 이유도 알려주세요!",
+    }
+
     const handleChange = (e) => {
-        setAnswers(prev => ({
-            ...prev,
-            [step]: e.target.value
-        }));
+        setCurrentInput(e.target.value);
     };
 
     const handleSubmit = () => {
-        if (answers[step].trim() === '') {
+        if (currentInput.trim() === '') {
             // 입력값이 없을 때
             setPopupMessage("답변을 입력해주세요! 😊");
             setIsPopupOpen(true);
             return;
         }
 
-        if (step === 1) {
-            setTitle("당신에게 가장 소중했던 사람은 누구였나요? 그 이유도 알려주세요!");
-            setAnswers({ 1: '' });
+        setAnswers(prev => ({
+            ...prev,
+            [step]: currentInput
+        }));
+
+        if (step < Object.keys(questions).length) {
             setStep(step + 1);
+            setCurrentInput(answers[step + 1] || '');
         } else {
             //다음 단계가 없다면 보라색 팝업 띄우기
             setPopupMessage("의미 있는 사람들과 나눈 소중하고 감사한 순간들이 참 따뜻하게 느껴지네요!");
@@ -43,9 +49,9 @@ const GratitudeRoom = () => {
             return;
         }
 
-        if (step === 2) {
-            setTitle(`${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`);
+        if (step > 1) {
             setStep(step - 1);
+            setCurrentInput(answers[step - 1] || '');
         }
     };
 
@@ -80,11 +86,11 @@ const GratitudeRoom = () => {
                 {/* 우측 메뉴 */}
                 <div className="w-3/4 bg-white bg-opacity-45 p-8 rounded-l-3xl flex flex-col items-center justify-center px-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
-                    {title}
+                    {questions[step]}
                 </h1>
 
                 <textarea
-                    value={answers[step]}
+                    value={currentInput}
                     onChange={handleChange}
                     placeholder="여기에 남겨주세요 :)"
                     className="w-full h-48 p-4 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 resize-none"
