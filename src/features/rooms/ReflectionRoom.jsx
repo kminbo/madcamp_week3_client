@@ -1,71 +1,44 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import home_background from '../../assets/images/home_background.png';
-import useUserStore from '../../store/userStore';
 
-const GratitudeRoom = () => {
-    const { lastName, firstName } = useUserStore();
-    const [answers, setAnswers] = useState({ 1: '', 2: '' });
-    const [step, setStep] = useState(1);
-    const [currentInput, setCurrentInput] = useState('');
+const ReflectionRoom = () => {
+    const navigate = useNavigate();
+    const [answer, setAnswer] = useState('');
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [nextStep, setNextStep] = useState(false);
 
-    const questions = {
-        1: `${lastName}${firstName}님의 삶에서 가장 감사했던 순간은 언제였나요?`,
-        2: "당신에게 가장 소중했던 사람은 누구였나요? 그 이유도 알려주세요!",
-    }
-
-    const navigate = useNavigate();
-
+    // 입력값 변경
     const handleChange = (e) => {
-        setCurrentInput(e.target.value);
+        setAnswer(e.target.value);
     };
 
-    const handleSubmit = () => {
-        if (currentInput.trim() === '') {
-            // 입력값이 없을 때
+    // 다음 페이지 이동
+    const handleNext = () => {
+        if (answer.trim() === '') {
             setPopupMessage("답변을 입력해주세요! 😊");
             setIsPopupOpen(true);
             return;
         }
 
-        setAnswers(prev => ({
-            ...prev,
-            [step]: currentInput
-        }));
+        setPopupMessage("그때의 선택과 행동의 의미를 깊이 돌아보며 \n스스로를 더 진지하게 마주하는 시간이 되었길 바랍니다.");
+        setIsPopupOpen(true);
+        setNextStep(true);
 
-        if (step < Object.keys(questions).length) {
-            setStep(step + 1);
-            setCurrentInput(answers[step + 1] || '');
-        } else {
-            //다음 단계가 없다면 보라색 팝업 띄우기
-            setPopupMessage("의미 있는 사람들과 나눈 소중하고 감사한 순간들이 참 따뜻하게 느껴지네요!");
-            setIsPopupOpen(true);
-        }
-    }
+        console.log("반성의 방 답변:", answer);  // 서버 전송 로직 추가 가능
+    };
 
-    const handleRightButtonClick = () => {
-        if (isPopupOpen) {
-            setIsPopupOpen(false);
-            navigate('/reflection');
-        } else {
-            handleSubmit(new Event('submit'));
-        }
-    }
+    // 이전 페이지 이동
+    const handlePrevious = () => {
+        navigate('/gratitude');  // 이전 방으로 이동
 
-    const handlePreviousButtonClick = () => {
-        if (isPopupOpen) {
-            setIsPopupOpen(false);
-            return;
-        }
-
-        if (step > 1) {
-            setStep(step - 1);
-            setCurrentInput(answers[step - 1] || '');
+        if (nextStep) {
+            navigate('/self-room');  // 다음 방으로 이동
         }
     };
 
+    // 팝업 닫기
     const closePopup = () => {
         setIsPopupOpen(false);
     };
@@ -78,30 +51,30 @@ const GratitudeRoom = () => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
-            >
+        >
 
-                {/* 좌측 메뉴 */}
-                <div className="w-1/4 text-white flex flex-col items-center justify-center p-8 space-y-6">
-                    <h2 className="text-lg font-semibold px-3 py-2 rounded-md">
-                        방랑자 정보 입력
-                    </h2>
-                    <ul className="space-y-4 text-lg">
-                        <li className="font-bold bg-black bg-opacity-60 text-white px-2 py-1 rounded-md">1. 감사의 방</li>
-                        <li>2. 반성의 방</li>
-                        <li>3. '나'의 방</li>
-                        <li>4. 친구의 방</li>
-                        <li>5. 부모님의 방</li>
-                    </ul>
-                </div>
+            {/* 좌측 메뉴 */}
+            <div className="w-1/4 text-white flex flex-col items-center justify-center p-8 space-y-6">
+                <h2 className="text-lg font-semibold px-3 py-2 rounded-md">
+                    방랑자 정보 입력
+                </h2>
+                <ul className="space-y-4 text-lg">
+                    <li>1. 감사의 방</li>
+                    <li className="font-bold bg-black bg-opacity-60 text-white px-2 py-1 rounded-md">2. 반성의 방</li>
+                    <li>3. '나'의 방</li>
+                    <li>4. 친구의 방</li>
+                    <li>5. 부모님의 방</li>
+                </ul>
+            </div>
 
-                {/* 우측 메뉴 */}
-                <div className="w-3/4 bg-white bg-opacity-45 p-8 rounded-l-3xl flex flex-col items-center justify-center px-8">
+            {/* 우측 메뉴 */}
+            <div className="w-3/4 bg-white bg-opacity-45 p-8 rounded-l-3xl flex flex-col items-center justify-center px-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
-                    {questions[step]}
+                    과거의 나에게 해주고 싶은 조언이 있다면?
                 </h1>
 
                 <textarea
-                    value={currentInput}
+                    value={answer}
                     onChange={handleChange}
                     placeholder="여기에 남겨주세요 :)"
                     className="w-full h-48 p-4 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 resize-none"
@@ -121,7 +94,7 @@ const GratitudeRoom = () => {
                     {/* 왼쪽 버튼 */}
                     <button 
                         className="text-2xl text-gray-700 hover:text-black"
-                        onClick={handlePreviousButtonClick}
+                        onClick={handlePrevious}
                     >
                         &#8592;
                     </button>
@@ -129,7 +102,7 @@ const GratitudeRoom = () => {
                     {/* 오른쪽 버튼 */}
                     <button 
                         className="text-2xl text-gray-700 hover:text-black"
-                        onClick={handleRightButtonClick}
+                        onClick={handleNext}
                     >
                         &#8594;
                     </button>
@@ -148,4 +121,4 @@ const GratitudeRoom = () => {
     );
 };
 
-export default GratitudeRoom;
+export default ReflectionRoom;

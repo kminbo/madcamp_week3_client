@@ -30,7 +30,7 @@ const JourneyStart = () => {
         console.log('임시 전송 데이터:', userData);
 
         // try {
-        //     const response = await fetch('http://13.211.159.177/basics', {
+        //     const response = await fetch('http://13.211.159.177/api/basics', {
         //         method: 'POST',
         //         headers: {
         //             'Content-Type': 'application/json',

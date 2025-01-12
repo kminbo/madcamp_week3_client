@@ -4,6 +4,7 @@ import DeathScreen from '../pages/DeathScreen';
 import App from '../App';
 import JourneyStart from '../pages/JourneyStart';
 import GratitudeRoom from '../features/rooms/GratitudeRoom';
+import ReflectionRoom from '../features/rooms/ReflectionRoom';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: "gratitude",
                 element: <GratitudeRoom />,
+            },
+            {
+                path: "reflection",
+                element: <ReflectionRoom />,
             }
         ],
     },
