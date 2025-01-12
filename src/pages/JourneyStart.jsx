@@ -14,6 +14,7 @@ const JourneyStart = () => {
     
     // zustand에서 user_id 가져오기
     const userId = useUserStore((state) => state.userId);
+    const setUserInfo = useUserStore((state) => state.setUserInfo);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -65,6 +66,9 @@ const JourneyStart = () => {
 
         setPopupMessage(`반가워요, ${lastName+firstName}님! 갑작스러운 여정에 놀라셨겠지만.. \n같이 즐겨주셨으면 좋겠어요 :)`);
         setIsPopupOpen(true);     
+
+        // store 업데이트
+        setUserInfo(userId, lastName, firstName, birthDate);
     };
 
     const handleRightButtonClick = () => {

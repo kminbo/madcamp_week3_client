@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import home_background from '../../assets/images/home_background.png';
+import useUserStore from '../../store/userStore';
 
 const GratitudeRoom = () => {
+    const { lastName, firstName } = useUserStore();
     const [answer, setAnswer] = useState('');
 
     const handleChange = (e) => {
@@ -20,7 +22,7 @@ const GratitudeRoom = () => {
             >
 
                 {/* 좌측 메뉴 */}
-                <div className="w-1/4 bg-black ob-opacity-40 text-white flex flex-col justify-center p-8 space-y-6">
+                <div className="w-1/4 text-white flex flex-col items-center justify-center p-8 space-y-6">
                     <h2 className="text-lg font-semibold bg-black bg-opacity-60 px-3 py-2 rounded-md">
                         방랑자 정보 입력
                     </h2>
@@ -36,7 +38,7 @@ const GratitudeRoom = () => {
                 {/* 우측 메뉴 */}
                 <div className="w-3/4 flex flex-col items-center justify-center px-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
-                    
+                    {`${lastName}${firstName}`}님의 삶에서 가장 감사했던 순간은 언제였나요?
                 </h1>
 
                 <textarea

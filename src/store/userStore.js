@@ -1,8 +1,16 @@
 import { create } from 'zustand';
 
 const useUserStore = create((set) => ({
-    userId: '',  // 기본 userId 상태
-    setUserId: (id) => set({ userId: id }),  // userId 상태 업데이트 함수
-}))
+    userId: null,
+    lastName: '',
+    firstName: '',
+    birthDate: '',
+    setUserInfo: (userId, lastName, firstName, birthDate) => set({
+        userId,
+        lastName,
+        firstName,
+        birthDate
+    }),
+}));
 
 export default useUserStore;
