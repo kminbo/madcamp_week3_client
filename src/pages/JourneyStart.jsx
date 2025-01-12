@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import home_background from '../assets/images/home_background.png';
 import useUserStore from '../store/userStore';
+import { useNavigate } from 'react-router-dom';
 
 const JourneyStart = () => {
     const [lastName, setLastName] = useState('');
@@ -9,6 +10,8 @@ const JourneyStart = () => {
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const navigate = useNavigate();
+    
     // zustand에서 user_id 가져오기
     const userId = useUserStore((state) => state.userId);
 
@@ -17,7 +20,7 @@ const JourneyStart = () => {
         console.log(lastName, firstName, birthDate);
 
         const userData = {
-            user_id: 1,  //userId
+            user_id: userId || 1,  
             last_name: lastName || '김',
             first_name: firstName || '보민',
             birth_date: birthDate || '2004-02-16',
@@ -61,7 +64,16 @@ const JourneyStart = () => {
 
 
         setPopupMessage(`반가워요, ${lastName+firstName}님! 갑작스러운 여정에 놀라셨겠지만.. \n같이 즐겨주셨으면 좋겠어요 :)`);
-        setIsPopupOpen(true);
+        setIsPopupOpen(true);     
+    };
+
+    const handleRightButtonClick = () => {
+        if (isPopupOpen) {
+            setIsPopupOpen(false);
+            navigate('/gratitude');
+        } else {
+            handleSubmit(new Event('submit'));
+        }
     };
 
     return (
@@ -136,7 +148,7 @@ const JourneyStart = () => {
                     {/* 오른쪽 버튼 */}
                     <button 
                         className="text-2xl text-gray-700 hover:text-black"
-                        onClick={handleSubmit}
+                        onClick={handleRightButtonClick}
                     >
                         &#8594;
                     </button>
