@@ -89,86 +89,79 @@ const DeathScreen = () => {
             <div className="relative pointer-events-none ">
                 {/* 처음 뜨는 문구 */}
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${
-                        showInitialText &&
-                        !showMessage &&
-                        !showSecondMessage &&
-                        !showThirdMessage &&
-                        !showFinalMessage1 &&
-                        !showFinalMessage2 &&
-                        !showFinalMessage3
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${showInitialText &&
+                            !showMessage &&
+                            !showSecondMessage &&
+                            !showThirdMessage &&
+                            !showFinalMessage1 &&
+                            !showFinalMessage2 &&
+                            !showFinalMessage3
                             ? 'opacity-100'
                             : 'opacity-0'
-                    }`}
+                        }`}
                 >
                     당신은 죽었습니다
                 </h1>
 
                 {/* 첫 번째 문구: "여기가 마지막일까요?" */}
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-1/2 -translate-x-1/2 whitespace-nowrap ${
-                        showMessage &&
-                        !showFinalMessage1 &&
-                        !showFinalMessage2 &&
-                        !showFinalMessage3
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-1/2 -translate-x-1/2 whitespace-nowrap ${showMessage &&
+                            !showFinalMessage1 &&
+                            !showFinalMessage2 &&
+                            !showFinalMessage3
                             ? 'opacity-100'
                             : 'opacity-0'
-                    }`}
+                        }`}
                 >
                     여기가 마지막일까요?
                 </h1>
 
                 {/* 두 번째 문구: "아니면 아직 남겨둔 무언가가" */}
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-20 left-1/2 -translate-x-1/2 whitespace-nowrap ${
-                        showSecondMessage &&
-                        !showFinalMessage1 &&
-                        !showFinalMessage2 &&
-                        !showFinalMessage3
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-20 left-1/2 -translate-x-1/2 whitespace-nowrap ${showSecondMessage &&
+                            !showFinalMessage1 &&
+                            !showFinalMessage2 &&
+                            !showFinalMessage3
                             ? 'opacity-100'
                             : 'opacity-0'
-                    }`}
+                        }`}
                 >
                     아니면 아직 남겨둔 무언가가
                 </h1>
 
                 {/* 세 번째 문구: "당신을 기다리고 있을까요?" */}
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-40 left-1/2 -translate-x-1/2 whitespace-nowrap ${
-                        showThirdMessage &&
-                        !showFinalMessage1 &&
-                        !showFinalMessage2 &&
-                        !showFinalMessage3
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-40 left-1/2 -translate-x-1/2 whitespace-nowrap ${showThirdMessage &&
+                            !showFinalMessage1 &&
+                            !showFinalMessage2 &&
+                            !showFinalMessage3
                             ? 'opacity-100'
                             : 'opacity-0'
-                    }`}
+                        }`}
                 >
                     당신을 기다리고 있을까요?
                 </h1>
 
                 {/* 최종 문구 1: "영혼의 여정에서" */}
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-1/2 -translate-x-1/2 whitespace-nowrap ${
-                        showFinalMessage1 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-1/2 -translate-x-1/2 whitespace-nowrap ${showFinalMessage1 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     영혼의 여정에서
                 </h1>
 
                 {/* 최종 문구 2: "각 단계마다 음표를 모아가며" */}
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-20 left-1/2 -translate-x-1/2 whitespace-nowrap ${
-                        showFinalMessage2 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-20 left-1/2 -translate-x-1/2 whitespace-nowrap ${showFinalMessage2 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     각 단계마다 음표를 모아가며
                 </h1>
 
                 {/* 최종 문구 3: "그 답을 찾아보세요." */}
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-40 left-1/2 -translate-x-1/2 whitespace-nowrap ${
-                        showFinalMessage3 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-40 left-1/2 -translate-x-1/2 whitespace-nowrap ${showFinalMessage3 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     그 답을 찾아보세요.
                 </h1>
@@ -176,9 +169,8 @@ const DeathScreen = () => {
 
             {/* 버튼들: pointer-events-auto 유지로 클릭 가능 */}
             <div
-                className={`relative flex flex-col items-center space-y-4 mt-10 transition-opacity duration-1000 ${
-                    showButtons ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`relative flex flex-col items-center space-y-4 mt-10 transition-opacity duration-1000 ${showButtons ? 'opacity-100' : 'opacity-0'
+                    }`}
                 style={{ pointerEvents: 'auto' }}
             >
                 <button
@@ -197,9 +189,8 @@ const DeathScreen = () => {
 
             {/* 최종 버튼 */}
             <button
-                className={`relative mt-10 bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg hover:bg-opacity-30 transition-all duration-1000 ${
-                    showStartButton ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`relative mt-10 bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg hover:bg-opacity-30 transition-all duration-1000 ${showStartButton ? 'opacity-100' : 'opacity-0'
+                    }`}
                 style={{ pointerEvents: 'auto' }}
                 onClick={handleStartJourney}
             >
