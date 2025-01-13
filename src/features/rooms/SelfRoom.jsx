@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import home_background from '../../assets/images/home_background.png';
-import useUserStore from '../../store/userStore';  // ✅ userId 가져오기
-import { saveProgress } from '../../api/progressApi';  // ✅ API 호출 함수 가져오기
+import useUserStore from '../../store/userStore'; // ✅ userId 가져오기
+import { saveProgress } from '../../api/progressApi'; // ✅ API 호출 함수 가져오기
 
 // ✅ 로컬스토리지 저장 함수
 const saveToLocalStorage = (key, value) => {
@@ -17,8 +17,8 @@ const loadFromLocalStorage = (key) => {
 
 const SelfRoom = () => {
     const navigate = useNavigate();
-    const { userId } = useUserStore();  // ✅ userId 가져오기
-    const [answers, setAnswers] = useState({ 1: '', 2: '', 3: '' });
+    const { userId } = useUserStore(); // ✅ userId 가져오기
+    const [answers, setAnswers] = useState({});
     const [step, setStep] = useState(1);
     const [currentInput, setCurrentInput] = useState('');
     const [popupMessage, setPopupMessage] = useState('');
@@ -30,13 +30,15 @@ const SelfRoom = () => {
         3: '현재나 과거의 취미나 꿈에 대해서 생각해볼까요?',
     };
 
+    const stage = 3; // ✅ SelfRoom의 stage 값 고정
+
     // ✅ 페이지 로드 시 로컬스토리지에서 데이터 불러오기
     useEffect(() => {
         const savedAnswers = loadFromLocalStorage('selfRoomAnswers');
         if (savedAnswers) {
             setAnswers(savedAnswers);
             setStep(Object.keys(savedAnswers).length + 1);
-            setCurrentInput(savedAnswers[Object.keys(savedAnswers).length] || '');
+            setCurrentInput(savedAnswers[Object.keys(savedAnswers).length + 1] || '');
         }
     }, []);
 
@@ -58,28 +60,30 @@ const SelfRoom = () => {
         setAnswers(updatedAnswers);
         saveToLocalStorage('selfRoomAnswers', updatedAnswers);
 
+        // ✅ MongoDB에 진행 상황 저장
+        const progressData = {
+            userId: userId || 'default-user-id',
+            stage: stage, // ✅ 고정된 stage 값 사용
+            questions: [
+                {
+                    stage: stage,
+                    questionText: questions[step],
+                    answerText: currentInput,
+                },
+            ],
+        };
+
+        try {
+            const response = await saveProgress(progressData);
+            console.log('진행 상황 저장 성공:', response);
+        } catch (error) {
+            console.error('진행 상황 저장 중 오류 발생:', error);
+        }
+
         if (step < Object.keys(questions).length) {
             setStep(step + 1);
             setCurrentInput(updatedAnswers[step + 1] || '');
         } else {
-            // ✅ MongoDB에 진행 상황 저장
-            const progressData = {
-                userId: userId || 'default-user-id',
-                stage: 3,
-                questions: Object.entries(updatedAnswers).map(([stage, answerText]) => ({
-                    stage: parseInt(stage),
-                    questionText: questions[stage],
-                    answerText,
-                })),
-            };
-
-            try {
-                const response = await saveProgress(progressData);
-                console.log('진행 상황 저장 성공:', response);
-            } catch (error) {
-                console.error('진행 상황 저장 중 오류 발생:', error);
-            }
-
             setPopupMessage('당신의 꿈과 행복했던 순간들에 대한 따뜻한 이야기가 마음에 깊이 스며들었어요!');
             setIsPopupOpen(true);
         }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import home_background from '../../assets/images/home_background.png';
-import useUserStore from '../../store/userStore';  // ✅ userId 가져오기
-import { saveProgress } from '../../api/progressApi';  // ✅ API 호출 함수 가져오기
+import useUserStore from '../../store/userStore'; // ✅ userId 가져오기
+import { saveProgress } from '../../api/progressApi'; // ✅ API 호출 함수 가져오기
 
 // ✅ 로컬스토리지 저장 함수
 const saveToLocalStorage = (key, value) => {
@@ -17,10 +17,12 @@ const loadFromLocalStorage = (key) => {
 
 const ReflectionRoom = () => {
     const navigate = useNavigate();
-    const { userId } = useUserStore();  // ✅ userId 가져오기
+    const { userId } = useUserStore(); // ✅ userId 가져오기
     const [answer, setAnswer] = useState('');
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const stage = 2; // ✅ ReflectionRoom의 stage 값 고정
 
     // ✅ 페이지 로드 시 로컬스토리지에서 데이터 불러오기
     useEffect(() => {
@@ -56,11 +58,11 @@ const ReflectionRoom = () => {
 
         // ✅ 진행 상황을 MongoDB에 저장
         const progressData = {
-            userId: userId || 'default-user-id',  // userId가 없을 때 기본값 설정
-            stage: 2,
+            userId: userId || 'default-user-id',
+            stage: stage,
             questions: [
                 {
-                    stage: 2,
+                    stage: stage,
                     questionText: "과거의 나에게 해주고 싶은 조언이 있다면?",
                     answerText: answer,
                 },
@@ -133,6 +135,7 @@ const ReflectionRoom = () => {
                     <button className="text-2xl text-gray-700 hover:text-black" onClick={handlePrevious}>
                         &#8592;
                     </button>
+
                     <button className="text-2xl text-gray-700 hover:text-black" onClick={handleNext}>
                         &#8594;
                     </button>
