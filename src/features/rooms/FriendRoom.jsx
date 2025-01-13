@@ -21,6 +21,7 @@ const FriendRoom = () => {
     const [answer, setAnswer] = useState('');
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isStageUpdated, setIsStageUpdated] = useState(false);  // ✅ stage 업데이트 여부
 
     // ✅ 페이지 로드 시 로컬스토리지에서 데이터 불러오기
     useEffect(() => {
@@ -57,7 +58,7 @@ const FriendRoom = () => {
         // ✅ MongoDB에 진행 상황 저장
         const progressData = {
             userId: userId || 'default-user-id',
-            stage: 4,
+            stage: 4,  // ✅ 고정된 stage 값
             questions: [
                 {
                     stage: 4,
@@ -68,8 +69,12 @@ const FriendRoom = () => {
         };
 
         try {
-            const response = await saveProgress(progressData);
-            console.log('진행 상황 저장 성공:', response);
+            // ✅ 첫 질문일 경우에만 stage 업데이트
+            if (!isStageUpdated) {
+                await saveProgress(progressData);
+                setIsStageUpdated(true);
+                console.log('진행 상황 저장 성공:', progressData);
+            }
         } catch (error) {
             console.error('진행 상황 저장 중 오류 발생:', error);
         }
@@ -131,12 +136,18 @@ const FriendRoom = () => {
                 {/* 좌우 네비게이션 버튼 */}
                 <div className="absolute bottom-0 left-1/4 right-0 flex justify-between px-4 pb-4">
                     {/* 왼쪽 버튼 */}
-                    <button className="text-2xl text-gray-700 hover:text-black" onClick={handlePrevious}>
+                    <button
+                        className="text-2xl text-gray-700 hover:text-black"
+                        onClick={handlePrevious}
+                    >
                         &#8592;
                     </button>
 
                     {/* 오른쪽 버튼 */}
-                    <button className="text-2xl text-gray-700 hover:text-black" onClick={handleNext}>
+                    <button
+                        className="text-2xl text-gray-700 hover:text-black"
+                        onClick={handleNext}
+                    >
                         &#8594;
                     </button>
                 </div>
