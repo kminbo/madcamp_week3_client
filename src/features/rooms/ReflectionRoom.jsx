@@ -16,6 +16,11 @@ const ReflectionRoom = () => {
 
     // 다음 페이지 이동
     const handleNext = () => {
+        if (isPopupOpen) {
+            navigate('/self');
+            return;
+        }
+
         if (answer.trim() === '') {
             setPopupMessage("답변을 입력해주세요! 😊");
             setIsPopupOpen(true);
@@ -24,7 +29,6 @@ const ReflectionRoom = () => {
 
         setPopupMessage("그때의 선택과 행동의 의미를 깊이 돌아보며 \n스스로를 더 진지하게 마주하는 시간이 되었길 바랍니다.");
         setIsPopupOpen(true);
-        setNextStep(true);
 
         console.log("반성의 방 답변:", answer);  // 서버 전송 로직 추가 가능
     };
@@ -32,10 +36,6 @@ const ReflectionRoom = () => {
     // 이전 페이지 이동
     const handlePrevious = () => {
         navigate('/gratitude');  // 이전 방으로 이동
-
-        if (nextStep) {
-            navigate('/self-room');  // 다음 방으로 이동
-        }
     };
 
     // 팝업 닫기
@@ -82,7 +82,7 @@ const ReflectionRoom = () => {
 
                 {/* 하단 음표 이미지 */}
                 <div className="flex mt-16 space-x-4">
-                    <img src={require('../../assets/images/note1.png')} alt="note1" className="w-16 h-30 opacity-60 grayscale" />
+                    <img src={require('../../assets/images/note1_purple.png')} alt="note1" className="w-16 h-30 opacity-100" />
                     <img src={require('../../assets/images/note2.png')} alt="note2" className="w-16 h-30 opacity-60 grayscale" />
                     <img src={require('../../assets/images/note3.png')} alt="note3" className="w-16 h-30 opacity-60 grayscale" />
                     <img src={require('../../assets/images/note4.png')} alt="note4" className="w-16 h-30 opacity-60 grayscale" />

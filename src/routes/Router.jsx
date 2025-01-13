@@ -5,6 +5,8 @@ import App from '../App';
 import JourneyStart from '../pages/JourneyStart';
 import GratitudeRoom from '../features/rooms/GratitudeRoom';
 import ReflectionRoom from '../features/rooms/ReflectionRoom';
+import SelfRoom from '../features/rooms/SelfRoom';
+import FriendRoom from '../features/rooms/FriendRoom';
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
             {
                 path: "reflection",
                 element: <ReflectionRoom />,
+            },
+            {
+                path: "self",
+                element: <SelfRoom />,
+            },
+            {
+                path: "friend",
+                element: <FriendRoom />,
             }
         ],
     },
