@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const userAnswers = {
-    gratitude: '감샄',
-    regret: '후횤',
+    gratitude: '감사',
+    regret: '후회',
     self: '취미',
     friend: '친구',
     parents: '부모',
@@ -22,7 +22,7 @@ const JourneyEnd = () => {
     };
 
     const handleNext = () => {
-        return;
+        navigate('/revival');
     };
 
 

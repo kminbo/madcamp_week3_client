@@ -9,6 +9,8 @@ import SelfRoom from '../features/rooms/SelfRoom';
 import FriendRoom from '../features/rooms/FriendRoom';
 import ParentsRoom from '../features/rooms/ParentsRoom';
 import JourneyEnd from '../pages/JourneyEnd';
+import Revival from '../pages/Revival';
+import Teatime from '../pages/Teatime';
 
 const router = createBrowserRouter([
     {
@@ -50,6 +52,14 @@ const router = createBrowserRouter([
             {
                 path: "journey-end",
                 element: <JourneyEnd />,
+            },
+            {
+                path: "revival",
+                element: <Revival />,
+            },
+            {
+                path: "teatime",
+                element: <Teatime />,
             }
         ],
     },
