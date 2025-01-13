@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import home_background from '../../assets/images/home_background.png';
 
-const FriendRoom = () => {
+
+const ParentsRoom = () => {
     const navigate = useNavigate();
     const [answer, setAnswer] = useState('');
     const [popupMessage, setPopupMessage] = useState('');
@@ -16,7 +17,7 @@ const FriendRoom = () => {
     // 다음 페이지 이동
     const handleNext = () => {
         if (isPopupOpen) {
-            navigate('/parents');
+            navigate('/journey-end');
             return;
         }
 
@@ -26,15 +27,15 @@ const FriendRoom = () => {
             return;
         }
 
-        setPopupMessage("친구들은 언제나 마음을 따뜻하게 해주고 든든한 존재죠! \n마음속에 담아두었던 진심이 잘 전해졌을 거라 믿어요.");
+        setPopupMessage("부모님은 언제나 우리 곁에서 든든하게 지켜주는 존재죠. \n그 사랑과 감사함이 마음속에 오래 남길 바랍니다.");
         setIsPopupOpen(true);
 
-        console.log("친구의 방 답변:", answer);  // 서버 전송 로직 추가 가능
+        console.log("부모님의 방 답변:", answer);  // 서버 전송 로직 추가 가능
     };
 
     // 이전 페이지 이동
     const handlePrevious = () => {
-        navigate('/self');  // 이전 방으로 이동
+        navigate('/friend');  // 이전 방으로 이동
     };
 
     // 팝업 닫기
@@ -61,15 +62,15 @@ const FriendRoom = () => {
                     <li>1. 감사의 방</li>
                     <li>2. 반성의 방</li>
                     <li>3. '나'의 방</li>
-                    <li className="font-bold bg-black bg-opacity-60 text-white px-2 py-1 rounded-md">4. 친구의 방</li>
-                    <li>5. 부모님의 방</li>
+                    <li>4. 친구의 방</li>
+                    <li className="font-bold bg-black bg-opacity-60 text-white px-2 py-1 rounded-md">5. 부모님의 방</li>
                 </ul>
             </div>
 
             {/* 우측 메뉴 */}
             <div className="w-3/4 bg-white bg-opacity-45 p-8 rounded-l-3xl flex flex-col items-center justify-center px-8">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-8 text-center">
-                    친구에게 그동안 하지 못했던 말을 전해보세요! 누구든 좋아요 :)
+                    부모님께 마지막으로 전하고 싶은 말이 있나요?
                 </h1>
 
                 <textarea
@@ -84,7 +85,7 @@ const FriendRoom = () => {
                     <img src={require('../../assets/images/note1_purple.png')} alt="note1" className="w-16 h-30 opacity-100" />
                     <img src={require('../../assets/images/note2_purple.png')} alt="note2" className="w-16 h-30 opacity-100" />
                     <img src={require('../../assets/images/note3_purple.png')} alt="note3" className="w-16 h-30 opacity-100" />
-                    <img src={require('../../assets/images/note4.png')} alt="note4" className="w-16 h-30 opacity-60 grayscale" />
+                    <img src={require('../../assets/images/note4_purple.png')} alt="note4" className="w-16 h-30 opacity-100" />
                     <img src={require('../../assets/images/note5.png')} alt="note5" className="w-16 h-30 opacity-60 grayscale" />
                 </div>
 
@@ -120,4 +121,4 @@ const FriendRoom = () => {
     );
 };
 
-export default FriendRoom;
+export default ParentsRoom;

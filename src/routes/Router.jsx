@@ -7,6 +7,8 @@ import GratitudeRoom from '../features/rooms/GratitudeRoom';
 import ReflectionRoom from '../features/rooms/ReflectionRoom';
 import SelfRoom from '../features/rooms/SelfRoom';
 import FriendRoom from '../features/rooms/FriendRoom';
+import ParentsRoom from '../features/rooms/ParentsRoom';
+import JourneyEnd from '../pages/JourneyEnd';
 
 const router = createBrowserRouter([
     {
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
             {
                 path: "friend",
                 element: <FriendRoom />,
+            }, 
+            {
+                path: "parents",
+                element: <ParentsRoom />,
+            },
+            {
+                path: "journey-end",
+                element: <JourneyEnd />,
             }
         ],
     },
