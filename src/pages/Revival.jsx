@@ -44,8 +44,10 @@ const Revival = () => {
 
     // 팝업 닫기
     const closePopup = () => {
-        setIsPopupOpen(false);
-        setTimeout(() => setIsPopupOpen(false), 500);
+        setPopupVisible(false);
+        setTimeout(() => {
+            setIsPopupOpen(false);
+        }, 500);
     };
 
     // 줄별 애니메이션 효과
@@ -84,7 +86,6 @@ const Revival = () => {
                 backgroundPosition: 'center',
             }}
         >
-
             {/* 중앙 박스 */}
             <div className="w-3/4 h-5/6 bg-white bg-opacity-45 rounded-3xl flex flex-col items-center justify-center space-y-6 shadow-lg relative overflow-hidden">
 
@@ -135,6 +136,14 @@ const Revival = () => {
                             className="mt-4 px-6 py-2 border-2 border-purple-800 text-purple-800 font-semibold rounded-full hover:bg-purple-800 hover:text-white transition"
                         >
                             지금이라도 카톡으로 마음을 전해보세요!
+                        </button>
+
+                        {/* 팝업 닫기 버튼 */}
+                        <button
+                            className="mt-4 ml-4 px-6 py-2 border-2 border-purple-800 text-purple-800 font-semibold rounded-full hover:bg-purple-800 hover:text-white transition"
+                            onClick={closePopup}
+                        >
+                            닫기
                         </button>
                     </div>
                 </div>

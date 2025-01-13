@@ -11,6 +11,9 @@ import ParentsRoom from '../features/rooms/ParentsRoom';
 import JourneyEnd from '../pages/JourneyEnd';
 import Revival from '../pages/Revival';
 import Teatime from '../pages/Teatime';
+import Aristotle from '../pages/Aristotle';
+import Schopenhauer from '../pages/Schopenhauer';
+import Socrates from '../pages/Socrates';
 
 const router = createBrowserRouter([
     {
@@ -60,6 +63,18 @@ const router = createBrowserRouter([
             {
                 path: "teatime",
                 element: <Teatime />,
+            },
+            {
+                path: "mentor/aristotle",
+                element: <Aristotle />,
+            }, 
+            {
+                path: "mentor/schopenhauer",
+                element: <Schopenhauer />,
+            },  
+            {
+                path: "mentor/socrates",
+                element: <Socrates />,
             }
         ],
     },
