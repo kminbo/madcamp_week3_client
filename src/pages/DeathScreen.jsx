@@ -69,25 +69,22 @@ const DeathScreen = () => {
         >
             <div className="relative">
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${
-                        showInitialText && !showMessage && !showSecondMessage && !showFinalMessage1 && !showFinalMessage2 && !showFinalMessage3 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 ${showInitialText && !showMessage && !showSecondMessage && !showFinalMessage1 && !showFinalMessage2 && !showFinalMessage3 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     당신은 죽었습니다
                 </h1>
 
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-0 w-full ${
-                        showMessage && !showFinalMessage1 && !showFinalMessage2 && !showFinalMessage3 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-0 w-full ${showMessage && !showFinalMessage1 && !showFinalMessage2 && !showFinalMessage3 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     여기가 마지막일까요?
                 </h1>
 
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 top-20 ${
-                        showSecondMessage && !showFinalMessage1 && !showFinalMessage2 && !showFinalMessage3 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 top-20 ${showSecondMessage && !showFinalMessage1 && !showFinalMessage2 && !showFinalMessage3 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     아니면 아직 남겨둔 무언가가
                     <br />
@@ -95,34 +92,30 @@ const DeathScreen = () => {
                 </h1>
 
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-0 w-full ${
-                        showFinalMessage1 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-0 left-0 w-full ${showFinalMessage1 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     영혼의 여정에서
                 </h1>
 
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-20 left-0 w-full ${
-                        showFinalMessage2 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-20 left-0 w-full ${showFinalMessage2 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     각 단계마다 음표를 모아가며
                 </h1>
 
                 <h1
-                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-40 left-0 w-full ${
-                        showFinalMessage3 ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className={`text-4xl sm:text-5xl font-bold text-white transition-opacity duration-1000 absolute top-40 left-0 w-full ${showFinalMessage3 ? 'opacity-100' : 'opacity-0'
+                        }`}
                 >
                     그 답을 찾아보세요.
                 </h1>
             </div>
 
             <div
-                className={`flex flex-col items-center space-y-4 mt-10 transition-opacity duration-1000 ${
-                    showButtons ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`flex flex-col items-center space-y-4 mt-10 transition-opacity duration-1000 ${showButtons ? 'opacity-100' : 'opacity-0'
+                    }`}
             >
                 <button
                     className="w-80 bg-black bg-opacity-50 text-white px-6 py-3 rounded-md hover:bg-opacity-70 transition-opacity duration-300"
@@ -141,9 +134,8 @@ const DeathScreen = () => {
             </div>
 
             <button
-                className={`mt-10 bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg hover:bg-opacity-30 transition-all duration-1000 ${
-                    showStartButton ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`mt-10 bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg hover:bg-opacity-30 transition-all duration-1000 ${showStartButton ? 'opacity-100' : 'opacity-0'
+                    }`}
                 onClick={handleStartJourney}
             >
                 영혼의 여정 시작하기
