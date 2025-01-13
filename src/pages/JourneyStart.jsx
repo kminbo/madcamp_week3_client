@@ -62,11 +62,11 @@ const JourneyStart = () => {
                 backgroundPosition: 'center',
             }}
         >
-            <div className="w-1/4 text-white flex flex-col items-center justify-center p-8 space-y-6">
-                <h2 className="text-lg font-semibold bg-black bg-opacity-60 px-3 py-2 rounded-md">
+            <div className="w-1/4 text-white flex flex-col items-center justify-center p-12 space-y-12">
+                <h2 className="text-lg font-semibold bg-black bg-opacity-40 px-3 py-2 rounded-md">
                     방랑자 정보 입력
                 </h2>
-                <ul className="space-y-4 text-lg">
+                <ul className="space-y-8 text-lg">
                     <li>1. 감사의 방</li>
                     <li>2. 반성의 방</li>
                     <li>3. '나'의 방</li>
@@ -89,7 +89,7 @@ const JourneyStart = () => {
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             placeholder='성'
-                            className='w-full px-4 py-2 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300'
+                            className='w-full px-4 py-2 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white bg-opacity-50'
                         />
                     </div>
 
@@ -100,7 +100,7 @@ const JourneyStart = () => {
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             placeholder='이름'
-                            className='w-full px-4 py-2 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300'
+                            className='w-full px-4 py-2 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white bg-opacity-50'
                         />
                     </div>
 
@@ -110,7 +110,7 @@ const JourneyStart = () => {
                             type="date"
                             value={birthDate}
                             onChange={(e) => setBirthDate(e.target.value)}
-                            className='w-full px-4 py-2 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300'
+                            className='w-full px-4 py-2 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white bg-opacity-50'
                         />
                     </div>
                 </form>
@@ -134,7 +134,7 @@ const JourneyStart = () => {
 
             {/* 팝업 메시지 */}
             {isPopupOpen && (
-                <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-700 text-white px-6 py-4 rounded-lg shadow-lg text-center whitespace-pre-line'>
+                <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-900 bg-opacity-85 text-white px-6 py-4 rounded-lg shadow-lg text-center whitespace-pre-line'>
                     {popupMessage}
                 </div>
             )}

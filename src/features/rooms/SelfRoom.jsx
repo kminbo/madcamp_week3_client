@@ -131,9 +131,11 @@ const SelfRoom = () => {
             }}
         >
             {/* 좌측 메뉴 */}
-            <div className="w-1/4 text-white flex flex-col items-center justify-center p-8 space-y-6">
-                <h2 className="text-lg font-semibold px-3 py-2 rounded-md">방랑자 정보 입력</h2>
-                <ul className="space-y-4 text-lg">
+            <div className="w-1/4 text-white flex flex-col items-center justify-center p-12 space-y-12">
+                <h2 className="text-lg font-semibold bg-black bg-opacity-40 px-3 py-2 rounded-md">
+                    방랑자 정보 입력
+                </h2>
+                <ul className="space-y-8 text-lg">
                     <li>1. 감사의 방</li>
                     <li>2. 반성의 방</li>
                     <li className="font-bold bg-black bg-opacity-60 text-white px-2 py-1 rounded-md">3. '나'의 방</li>
@@ -179,7 +181,7 @@ const SelfRoom = () => {
             {isPopupOpen && (
                 <div
                     onClick={closePopup}
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-700 text-white px-6 py-4 rounded-lg shadow-lg text-center whitespace-pre-line cursor-pointer"
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-900 bg-opacity-85 text-white px-6 py-4 rounded-lg shadow-lg text-center whitespace-pre-line cursor-pointer"
                 >
                     {popupMessage}
                 </div>
