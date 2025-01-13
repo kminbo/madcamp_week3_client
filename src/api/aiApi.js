@@ -26,3 +26,30 @@ export const generateAIResponse = async (aiData) => {
     throw error;
   }
 };
+
+/**
+ * AI 통계 생성 API
+ * @param {Array} questions - 질문과 답변 데이터 배열
+ * @returns {Object} AI 통계 요약 데이터
+ */
+export const generateStatistics = async (questions) => {
+  try {
+      const response = await fetch(`${BASE_URL}/api/ai/generate-statistics`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ questions }),
+      });
+
+      if (!response.ok) {
+          throw new Error(`서버 오류: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data;
+  } catch (error) {
+      console.error('AI 통계 요약 생성 중 오류 발생:', error);
+      throw error;
+  }
+};
