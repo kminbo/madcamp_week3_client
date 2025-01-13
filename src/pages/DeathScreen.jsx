@@ -39,19 +39,21 @@ const DeathScreen = () => {
                 setTimeout(() => {
                     setShowMessage(false);
                     setShowSecondMessage(false);
-                    setShowFinalMessage1(true);
                     setTimeout(() => {
-                        setShowFinalMessage2(true);
+                        setShowFinalMessage1(true);
                         setTimeout(() => {
-                            setShowFinalMessage3(true);
+                            setShowFinalMessage2(true);
                             setTimeout(() => {
-                                setShowStartButton(true);
+                                setShowFinalMessage3(true);
+                                setTimeout(() => {
+                                    setShowStartButton(true);
+                                }, 1000);
                             }, 1000);
                         }, 1000);
-                    }, 1000);
+                    }, 2000);
                 }, 2000);
             }, 1000);
-        }, 300);
+        }, 1000);
     };
 
     const handleStartJourney = () => {
@@ -123,16 +125,16 @@ const DeathScreen = () => {
                 }`}
             >
                 <button
-                    className="bg-black bg-opacity-60 text-white px-6 py-3 rounded-md hover:bg-opacity-70 transition-opacity duration-300"
+                    className="w-80 bg-black bg-opacity-50 text-white px-6 py-3 rounded-md hover:bg-opacity-70 transition-opacity duration-300"
                     onClick={handleButtonClick}
-                    style={{ pointerEvents: 'auto' }}  // ✅ 추가
-                    >
+                    style={{ pointerEvents: 'auto' }}
+                >
                     헉
                 </button>
                 <button
-                    className="bg-black bg-opacity-60 text-white px-6 py-3 rounded-md hover:bg-opacity-70 transition-opacity duration-300"
+                    className="w-80 bg-black bg-opacity-50 text-white px-6 py-3 rounded-md hover:bg-opacity-70 transition-opacity duration-300"
                     onClick={handleButtonClick}
-                    style={{ pointerEvents: 'auto' }}  // ✅ 추가
+                    style={{ pointerEvents: 'auto' }}
                 >
                     진짜요?
                 </button>
