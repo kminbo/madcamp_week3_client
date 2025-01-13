@@ -26,7 +26,7 @@ const JourneyEnd = () => {
         >
 
             {/* 중앙 박스 */}
-            <div className="w-3/4 h-5/6 bg-white bg-opacity-45 rounded-3xl flex flex-col items-center justify-center space-y-8 shadow-lg">
+            <div className="w-3/4 h-5/6 bg-white bg-opacity-45 rounded-3xl flex flex-col items-center justify-center space-y-8 shadow-lg relative">
 
                 {/* 음표 이미지 */}
                 <div className="flex mt-16 space-x-4">
@@ -42,10 +42,10 @@ const JourneyEnd = () => {
                     영혼의 여정을 마쳤어요.
                 </h1>
 
-                                {/* 좌우 네비게이션 버튼 */}
-                                <div className="absolute bottom-0 left-1/4 right-0 flex justify-between px-4 pb-4">
+                {/* 좌우 네비게이션 버튼 */}
+                <div className="absolute bottom-0 left-0 right-0 flex justify-between px-8 py-8">
                     {/* 왼쪽 버튼 */}
-                    <button 
+                    <button
                         className="text-2xl text-gray-700 hover:text-black"
                         onClick={handlePrevious}
                     >
@@ -53,7 +53,7 @@ const JourneyEnd = () => {
                     </button>
 
                     {/* 오른쪽 버튼 */}
-                    <button 
+                    <button
                         className="text-2xl text-gray-700 hover:text-black"
                         onClick={handleNext}
                     >
