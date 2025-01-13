@@ -154,7 +154,7 @@ const GratitudeRoom = () => {
                     value={currentInput}
                     onChange={handleChange}
                     placeholder="여기에 남겨주세요 :)"
-                    className="w-full h-48 p-4 border-2 border-purple-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 resize-none"
+                    className="w-full h-48 p-4 border-2 border-purple-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 resize-none bg-white bg-opacity-50"
                 />
 
                 {/* 하단 음표 이미지 */}
