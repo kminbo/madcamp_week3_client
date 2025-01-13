@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import home_background from '../assets/images/home_background.png';
 import useUserStore from '../store/userStore';
 import { useNavigate } from 'react-router-dom';
+import { createUser } from '../api/userApi';  // ✅ API 호출 함수 가져오기
+
 
 const JourneyStart = () => {
     const [lastName, setLastName] = useState('');
@@ -11,64 +13,35 @@ const JourneyStart = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const navigate = useNavigate();
-    
+
     // zustand에서 user_id 가져오기
     const userId = useUserStore((state) => state.userId);
     const setUserInfo = useUserStore((state) => state.setUserInfo);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(lastName, firstName, birthDate);
 
         const userData = {
-            user_id: userId || 1,  
-            last_name: lastName || '김',
-            first_name: firstName || '보민',
-            birth_date: birthDate || '2004-02-16',
+            name: lastName,
+            surname: firstName,
+            birthday: birthDate,
         };
 
-        console.log('임시 전송 데이터:', userData);
+        try {
+            // ✅ API 호출
+            const response = await createUser(userData);
 
-        // try {
-        //     const response = await fetch('http://13.211.159.177/api/basics', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify(userData),
-        //     });
+            if (response) {
+                console.log('서버 응답:', response);
+                setPopupMessage(`반가워요, ${lastName + firstName}님! 갑작스러운 여정에 놀라셨겠지만 같이 즐겨주셨으면 좋겠어요 :)`);
+                setIsPopupOpen(true);
 
-        //     if (response.ok) {  
-        //         const data = await response.json();
-
-        //         if (data.success) {
-        //             console.log('서버 응답:', data.message);
-        //             setPopupMessage(`반가워요, ${lastName+firstName}님! 갑작스러운 여정에 놀라셨겠지만.. \n같이 즐겨주셨으면 좋겠어요 :)`);
-        //             setIsPopupOpen(true);
-        //         } else {
-        //             console.error('응답 실패:', data.message);
-        //         }
-        //     } else {
-        //         console.error('서버 오류:', response.statusText);
-        //     }
-        // } catch (error) {
-        //     console.error('Error:', error);
-        // }
-
-            // const response = await fetch('http://13.211.159.177/basics', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(userData),
-            // });
-
-
-        setPopupMessage(`반가워요, ${lastName+firstName}님! 갑작스러운 여정에 놀라셨겠지만.. \n같이 즐겨주셨으면 좋겠어요 :)`);
-        setIsPopupOpen(true);     
-
-        // store 업데이트
-        setUserInfo(userId, lastName, firstName, birthDate);
+                // store 업데이트
+                setUserInfo(response.user.userId, lastName, firstName, birthDate);
+            }
+        } catch (error) {
+            console.error('사용자 생성 중 오류 발생:', error);
+        }
     };
 
     const handleRightButtonClick = () => {
@@ -150,7 +123,7 @@ const JourneyStart = () => {
                     </button>
 
                     {/* 오른쪽 버튼 */}
-                    <button 
+                    <button
                         className="text-2xl text-gray-700 hover:text-black"
                         onClick={handleRightButtonClick}
                     >
