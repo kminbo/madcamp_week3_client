@@ -22,6 +22,8 @@ const ReflectionRoom = () => {
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const [blink, setBlink] = useState(false);
+
     const stage = 2; // ✅ ReflectionRoom의 stage 값 고정
 
     // ✅ 페이지 로드 시 로컬스토리지에서 데이터 불러오기
@@ -30,6 +32,12 @@ const ReflectionRoom = () => {
         if (savedAnswer) {
             setAnswer(savedAnswer);
         }
+
+        // ✅ 블링크 효과
+        setBlink(true);
+        setTimeout(() => {
+            setBlink(false);
+        }, 1500);
     }, []);
 
     // 입력값 변경
@@ -125,7 +133,7 @@ const ReflectionRoom = () => {
 
                 {/* 하단 음표 이미지 */}
                 <div className="flex mt-16 space-x-4">
-                    <img src={require('../../assets/images/note1_purple.png')} alt="note1" className="w-16 h-30 opacity-100" />
+                    <img src={require('../../assets/images/note1_purple.png')} alt="note1" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
                     <img src={require('../../assets/images/note2.png')} alt="note2" className="w-16 h-30 opacity-60 grayscale" />
                     <img src={require('../../assets/images/note3.png')} alt="note3" className="w-16 h-30 opacity-60 grayscale" />
                     <img src={require('../../assets/images/note4.png')} alt="note4" className="w-16 h-30 opacity-60 grayscale" />

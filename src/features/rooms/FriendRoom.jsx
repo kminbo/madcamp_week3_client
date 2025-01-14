@@ -22,6 +22,7 @@ const FriendRoom = () => {
     const [popupMessage, setPopupMessage] = useState('');
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [isStageUpdated, setIsStageUpdated] = useState(false);  // ✅ stage 업데이트 여부
+    const [blink, setBlink] = useState(false);
 
     // ✅ 페이지 로드 시 로컬스토리지에서 데이터 불러오기
     useEffect(() => {
@@ -29,6 +30,12 @@ const FriendRoom = () => {
         if (savedAnswer) {
             setAnswer(savedAnswer);
         }
+
+        // ✅ 블링크 효과
+        setBlink(true);
+        setTimeout(() => {
+            setBlink(false);
+        }, 1500);
     }, []);
 
     // 입력값 변경
@@ -128,9 +135,9 @@ const FriendRoom = () => {
 
                 {/* 하단 음표 이미지 */}
                 <div className="flex mt-16 space-x-4">
-                    <img src={require('../../assets/images/note1_purple.png')} alt="note1" className="w-16 h-30 opacity-100" />
-                    <img src={require('../../assets/images/note2_purple.png')} alt="note2" className="w-16 h-30 opacity-100" />
-                    <img src={require('../../assets/images/note3_purple.png')} alt="note3" className="w-16 h-30 opacity-100" />
+                    <img src={require('../../assets/images/note1_purple.png')} alt="note1" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
+                    <img src={require('../../assets/images/note2_purple.png')} alt="note2" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
+                    <img src={require('../../assets/images/note3_purple.png')} alt="note3" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
                     <img src={require('../../assets/images/note4_purple.png')} alt="note4" className="w-16 h-30 opacity-60 grayscale" />
                     <img src={require('../../assets/images/note5.png')} alt="note5" className="w-16 h-30 opacity-60 grayscale" />
                 </div>

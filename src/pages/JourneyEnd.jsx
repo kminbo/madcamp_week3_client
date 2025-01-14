@@ -142,6 +142,7 @@ const JourneyEnd = () => {
 
     const [showSummary, setShowSummary] = useState(false);   // 요약 표시 여부
     const [summaries, setSummaries] = useState([]);          // ✅ AI 요약 데이터 상태 추가
+    const [blink, setBlink] = useState(false);
 
     // ✅ 진행 상황과 AI 통계 요약 가져오기
     useEffect(() => {
@@ -157,6 +158,12 @@ const JourneyEnd = () => {
                 console.error('통계 요약을 가져오는 중 오류 발생:', error);
             }
         };
+
+        // ✅ 블링크 효과
+        setBlink(true);
+        setTimeout(() => {
+            setBlink(false);
+        }, 1500);
 
         fetchSummaries();
     }, [userId]);
@@ -198,11 +205,11 @@ const JourneyEnd = () => {
                 <div
                     className={`absolute top-20 flex space-x-4 transition-opacity duration-1000 ${showSummary ? 'opacity-0' : 'opacity-100'}`}
                 >
-                    <img src={require('../assets/images/note1_purple.png')} alt="note1" className="w-16 h-30" />
-                    <img src={require('../assets/images/note2_purple.png')} alt="note2" className="w-16 h-30" />
-                    <img src={require('../assets/images/note3_purple.png')} alt="note3" className="w-16 h-30" />
-                    <img src={require('../assets/images/note4_purple.png')} alt="note4" className="w-16 h-30" />
-                    <img src={require('../assets/images/note5_purple.png')} alt="note5" className="w-16 h-30" />
+                    <img src={require('../assets/images/note1_purple.png')} alt="note1" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
+                    <img src={require('../assets/images/note2_purple.png')} alt="note2" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
+                    <img src={require('../assets/images/note3_purple.png')} alt="note3" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
+                    <img src={require('../assets/images/note4_purple.png')} alt="note4" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
+                    <img src={require('../assets/images/note5_purple.png')} alt="note5" className={`w-16 h-30 opacity-100 ${blink ? 'animate-scale-once' : ''}`} />
                 </div>
 
                 {/* 초기 멘트 */}
