@@ -36,7 +36,7 @@
 
 
 ## 상세 페이지
-깃털이 떨어지는 SVG 애니메이션을 넣어 호기심을 유발함
+깃털이 떨어지는 SVG 애니메이션
 ![스크린샷 2025-01-15 144057](https://github.com/user-attachments/assets/bdc8d1b3-d9f5-4277-86e6-0260b27e4e45)
 ![스크린샷 2025-01-15 145126](https://github.com/user-attachments/assets/4d248288-0197-4dff-ae9a-7c4bbf133222)
 ![스크린샷 2025-01-15 145151](https://github.com/user-attachments/assets/cbb47392-d700-461c-af6a-bdf6989e13f9)
