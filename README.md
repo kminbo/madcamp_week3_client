@@ -36,54 +36,41 @@
 ![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/a192e85f-80b6-42f5-88b8-b43e5ebce6bd/Untitled.png)
 
 ## 상세 페이지
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/777f34fd-7df7-4851-a41c-f42593cd5492/image.png)
-
 깃털이 떨어지는 SVG 애니메이션을 넣어 호기심을 유발함
+![스크린샷 2025-01-15 144057](https://github.com/user-attachments/assets/bdc8d1b3-d9f5-4277-86e6-0260b27e4e45)
+![스크린샷 2025-01-15 145126](https://github.com/user-attachments/assets/4d248288-0197-4dff-ae9a-7c4bbf133222)
+![스크린샷 2025-01-15 145151](https://github.com/user-attachments/assets/cbb47392-d700-461c-af6a-bdf6989e13f9)
+![스크린샷 2025-01-15 145207](https://github.com/user-attachments/assets/81ca2dcb-6499-4006-9377-0e5919705fa0)
+![스크린샷 2025-01-15 145227](https://github.com/user-attachments/assets/88c81821-3e11-4988-bdc5-edb101c8f255)
+![스크린샷 2025-01-15 145300](https://github.com/user-attachments/assets/f2fd21bb-e0c3-4bf5-861a-e864b1445f80)
+![스크린샷 2025-01-15 150529](https://github.com/user-attachments/assets/a28d76a1-9c11-40df-8c78-c9c134e94f6f)
+![스크린샷 2025-01-15 150939](https://github.com/user-attachments/assets/e698715b-7ce5-4990-b5ec-cc17b6f61be0)
+![스크린샷 2025-01-15 151006](https://github.com/user-attachments/assets/10ab6417-3fee-463f-a1d6-4e56cb984745)
+![스크린샷 2025-01-15 151220](https://github.com/user-attachments/assets/e4d3843a-4553-43f2-873d-2cccc9fb9aa3)
+![스크린샷 2025-01-15 151236](https://github.com/user-attachments/assets/0144c07b-dcf2-4520-b58b-aad999646596)
+![스크린샷 2025-01-15 151248](https://github.com/user-attachments/assets/61e401c1-94f2-4329-b036-6d07655ff259)
+![스크린샷 2025-01-15 151306](https://github.com/user-attachments/assets/29a54bce-86b0-4d15-b77c-d83cd56691ee)
+![스크린샷 2025-01-15 151433](https://github.com/user-attachments/assets/faa5134e-396c-40ad-99d6-6ffe4c8a5be5)
+![스크린샷 2025-01-15 151518](https://github.com/user-attachments/assets/bc218efd-6c49-4676-aa6f-f382f2820f70)
+![스크린샷 2025-01-15 151720](https://github.com/user-attachments/assets/7a188fc5-061b-4be1-8736-1a74caf1f9fb)
+![스크린샷 2025-01-15 152031](https://github.com/user-attachments/assets/9083539e-0e93-4726-87ca-eb4d129832d1)
+![스크린샷 2025-01-15 152046](https://github.com/user-attachments/assets/646a6405-bdf1-4887-a473-ff6facd6deb0)
+![스크린샷 2025-01-15 152105](https://github.com/user-attachments/assets/50f5104a-97b3-455c-bcd5-4935d2b05a4c)
+![스크린샷 2025-01-15 152158](https://github.com/user-attachments/assets/d9edd366-61a7-4af6-b21b-761a27df653e)
+![스크린샷 2025-01-15 152212](https://github.com/user-attachments/assets/d056145e-15ab-413e-a675-1893a9874cd1)
+![스크린샷 2025-01-15 152241](https://github.com/user-attachments/assets/1f228f9f-6dab-4954-87f3-2d648ff11041)
+![스크린샷 2025-01-15 152305](https://github.com/user-attachments/assets/b5b9812b-0c8e-41c2-8469-7d3b7ecea4e0)
+![스크린샷 2025-01-15 152319](https://github.com/user-attachments/assets/56642a0f-2a22-4e65-9ed0-5ff9c8a411c0)
+![스크린샷 2025-01-15 152338](https://github.com/user-attachments/assets/a012adaa-acac-45d9-a6d9-aca4ee85822c)
+![스크린샷 2025-01-15 152349](https://github.com/user-attachments/assets/a40ad8e8-695c-41e3-94bc-6f58c0e4c4ff)
+![스크린샷 2025-01-15 152413](https://github.com/user-attachments/assets/c2be4683-a5d8-41d2-b17f-3770ef01c44b)
+![스크린샷 2025-01-15 152433](https://github.com/user-attachments/assets/790007b0-ffcf-4e8d-8817-86460e0a5819)
+![스크린샷 2025-01-15 152522](https://github.com/user-attachments/assets/cdb9816f-efdf-436f-9843-e852775a3b5e)
+![스크린샷 2025-01-15 152548](https://github.com/user-attachments/assets/8497b611-cd63-48c7-baf8-f85b6779306f)
+![스크린샷 2025-01-15 152604](https://github.com/user-attachments/assets/7cc8f24f-d3b1-40c0-aec0-754ad3fa908c)
+![스크린샷 2025-01-15 152631](https://github.com/user-attachments/assets/ef4ad07a-3686-43a6-b5ae-905e1d2ea123)
+![스크린샷 2025-01-15 152715](https://github.com/user-attachments/assets/436c11ca-e056-477d-bde4-3a8fcfd90888)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/e8c2d002-8ad2-43ec-a8cf-e3dcdfb7e1bf/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/e24a1076-048f-4672-8ae0-73059940322a/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/4b221e65-5e75-46e1-a0a0-2ff7ff375576/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/4cd2d477-215d-47d0-a778-71f3d89e8fee/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/80a92dcc-628f-43dc-b403-8508767d7cd9/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/ad5fbd58-b95e-413c-93eb-43f07247d6ce/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/93fc773c-d532-4c45-ae28-0067cacd6147/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/21697a42-f75b-45a8-a04e-6454ed60854c/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/d63912cd-8566-4985-8a27-4da6e9fe6c88/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/572a8880-5ab7-4ce8-be2a-4bc3f98a57da/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/533b027d-f8db-4f86-9178-79dbeddf60c7/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/c2c45c3d-b57c-4c30-80bc-bc8d583eab3b/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/75eab509-e22f-4758-8bc8-22f07860b10c/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/bbe7126f-9a0e-441c-9a67-f281db72ed59/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/e9e44dff-b708-4054-8215-171a7371c9aa/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/0aedf0da-63e0-40b9-b3c7-bea9c8f1550d/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/00f1568c-d088-4895-926c-d141039bbab1/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/d79562e5-47ea-4cc5-bb17-e2bc182b6e68/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/e5c78f3b-bb43-4d97-9fa6-4037b6c7a0c4/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/249a42f3-a68f-4ddd-8f1a-b1039657ca46/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/71cdc1a1-339f-4d12-b3cb-ee1662c9e6f0/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/3b31a646-8533-4df9-b599-2a1406b46164/image.png)
 
 ## 소감
 
