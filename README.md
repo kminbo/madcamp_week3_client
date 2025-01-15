@@ -32,8 +32,8 @@
 | **AI 통계 생성** 📊 | POST | /api/ai/generate-statistics | 200, 500 | 사용자 질문과 답변 요약 생성 |
 
 ## DB diagram
+![Untitled](https://github.com/user-attachments/assets/30370e21-33d5-4666-8642-b7902bc60bc4)
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/a192e85f-80b6-42f5-88b8-b43e5ebce6bd/Untitled.png)
 
 ## 상세 페이지
 깃털이 떨어지는 SVG 애니메이션을 넣어 호기심을 유발함
